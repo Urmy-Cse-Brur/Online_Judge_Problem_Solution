@@ -1,0 +1,48 @@
+#include <bits/stdc++.h>
+#include <vector>
+#include <iterator>
+
+using namespace std;
+
+
+int main()
+{
+ // freopen ("in.txt", "r", stdin);
+  string s;
+  int i, t, c, d, f = 0, j;
+  double per;
+
+
+  cin >> t;
+  getchar();
+  getchar();
+  for (j = 0; j < t; j++){
+    set <string> S;
+    set <string> :: iterator it;
+    map <string, int> mp;
+        c = 0;
+        if (f > 0)
+            cout << endl;
+    while (getline(cin, s)){
+       if (s.compare("") == 0)
+           break;
+        if (mp[s] == 0){
+            S.insert(s);
+            mp[s] = 1;
+        }
+        else
+            mp[s]++;
+
+      c++;
+    }
+    for (it = S.begin(); it != S.end(); it++){
+        d = mp[*it];
+        //cout << d << endl;
+        per = (d/ (double)c) * 100;
+        cout << *it << " ";
+        printf("%0.4lf\n", per);
+    }
+    f++;
+  }
+    return 0;
+}
